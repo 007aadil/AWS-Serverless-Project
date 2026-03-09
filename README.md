@@ -57,6 +57,18 @@ Python (Boto3)
 ✔ API-based data retrieval
 ✔ Low infrastructure cost
 
+📚 What I learned:
+
+• Building serverless architectures on AWS
+• Integrating frontend with cloud backend services
+• Designing scalable and cost-efficient systems
+
+I’m currently exploring opportunities in Cloud / DevOps / Cloud Security and continuing to build hands-on cloud projects.
+
+If you're working in cloud or building startup products, I’d love to connect and learn from you!
+
+#AWS #Serverless #CloudComputing #DevOps #Lambda #DynamoDB #GitHub #CloudSecurity #OpenToWork
+
 👨‍💻 Author
 
 Aadil Hathim
