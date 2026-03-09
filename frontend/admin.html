@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Aadil Infotech Admin</title>
+
+<style>
+
+body{
+font-family:Segoe UI;
+margin:0;
+background:#f4f6fb;
+}
+
+/* HEADER */
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 40px;
+background:white;
+box-shadow:0 2px 8px rgba(0,0,0,0.05);
+}
+
+.logo{
+display:flex;
+align-items:center;
+font-size:20px;
+font-weight:600;
+}
+
+.logo span{
+margin-left:10px;
+}
+
+.admin{
+font-weight:600;
+color:#2575fc;
+}
+
+.container{
+padding:40px;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+background:white;
+box-shadow:0 8px 20px rgba(0,0,0,0.1);
+}
+
+th,td{
+padding:12px;
+border-bottom:1px solid #ddd;
+}
+
+th{
+background:#2575fc;
+color:white;
+text-align:left;
+}
+
+a{
+background:#28a745;
+color:white;
+padding:6px 12px;
+border-radius:4px;
+text-decoration:none;
+}
+
+a:hover{
+background:#1e7e34;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+
+<svg width="34" height="34" viewBox="0 0 200 200">
+<circle cx="100" cy="100" r="90" fill="#2575fc"/>
+<text x="50%" y="60%" text-anchor="middle"
+fill="white" font-size="90"
+font-family="Segoe UI"
+font-weight="bold">A</text>
+</svg>
+
+<span>Aadil Infotech – Career Portal</span>
+
+</div>
+
+<div class="admin">
+Admin Dashboard
+</div>
+
+</header>
+
+<div class="container">
+
+<h2>Applicants</h2>
+
+<table id="appTable">
+
+<tr>
+<th>Name</th>
+<th>Email</th>
+<th>Applied</th>
+<th>Resume</th>
+</tr>
+
+</table>
+
+</div>
+
+<script>
+
+async function loadApplicants(){
+
+const response=await fetch(
+"https://se6ljjlqmd.execute-api.ap-south-1.amazonaws.com/prod/applicants"
+)
+
+const data=await response.json()
+
+const table=document.getElementById("appTable")
+
+data.forEach(applicant=>{
+
+const row=`
+<tr>
+<td>${applicant.name}</td>
+<td>${applicant.email}</td>
+<td>${applicant.applied_at}</td>
+<td>
+<a href="${applicant.resume_url}" target="_blank">
+View Resume
+</a>
+</td>
+</tr>
+`
+
+table.innerHTML+=row
+
+})
+
+}
+
+loadApplicants()
+
+</script>
+
+</body>
+</html>
